@@ -17,23 +17,11 @@ const App = () => {
       task: inputTask.current.value,
       finished: 'false'
     }
-
-    if (
-      inputTask.current.value === '' ||
-      inputTask.current.value === ' ' ||
-      inputTask.current.value === '  ' ||
-      inputTask.current.value === '   ' ||
-      inputTask.current.value === '    ' ||
-      inputTask.current.value === '     ' ||
-      inputTask.current.value === '      '
-    ) {
-      return false
-    }
     setList([...list, newTask])
   }
 
-  const deleteTask = async (taskId) => {
-    const newTask = await list.filter((task) => task.id !== taskId)
+  const deleteTask = (taskId) => {
+    const newTask = list.filter((task) => task.id !== taskId)
     setList(newTask)
   }
 
@@ -53,7 +41,7 @@ const App = () => {
         </Button>
         <List>
           {list.map((item) => (
-            <Task key={item.id} isfinished={true}>
+            <Task key={item.id} isfinished={item.finished}>
               <img
                 onClick={() => tarefaConcluida(item.id)}
                 src={Rocket}

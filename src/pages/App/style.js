@@ -63,7 +63,7 @@ export const Task = styled.div`
   height: 6rem;
   border: none;
   outline: none;
-  background: ${(props) => (props.isfinshed ? '#E8FF8B' : '#e4e4e4')};
+  background: ${(...props) => (props.isFinished ? '#E8FF8B' : '#e4e4e4')};
 
   p {
     font-size: 1.5rem;
